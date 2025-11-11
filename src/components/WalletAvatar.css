@@ -1,0 +1,87 @@
+.wallet-avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.wallet-avatar-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wallet-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.wallet-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.nft-avatar {
+  border-color: #f39c12;
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+}
+
+.generated-avatar {
+  border-color: #667eea;
+}
+
+.nft-badge,
+.generated-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+}
+
+.nft-badge {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.generated-badge {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.wallet-address-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  color: #666;
+  font-family: monospace;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.wallet-avatar-container:hover .wallet-address-tooltip {
+  opacity: 1;
+}
+
+/* 暗色模式 */
+.dark-theme .wallet-avatar {
+  border-color: #2c2c2c;
+}
+
+.dark-theme .wallet-address-tooltip {
+  color: #999;
+}
+

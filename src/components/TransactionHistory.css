@@ -1,0 +1,328 @@
+.transaction-history-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+.transaction-history-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.transaction-history-section:hover::before {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.transaction-history-section h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.transaction-history-section h2::before {
+  content: '📊';
+  font-size: 32px;
+  -webkit-text-fill-color: initial;
+  background: none;
+}
+
+.export-button {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.export-button:hover {
+  background: #2980b9;
+}
+
+.transaction-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #3498db;
+}
+
+.filter-select {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.filter-select:focus {
+  border-color: #3498db;
+}
+
+.empty-message {
+  text-align: center;
+  color: #999;
+  padding: 40px;
+  font-size: 16px;
+}
+
+.error-message {
+  padding: 16px;
+  background: #fee;
+  color: #c33;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transaction-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 4px solid #3498db;
+  transition: box-shadow 0.2s;
+}
+
+.transaction-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-item.failed {
+  border-left-color: #e74c3c;
+  opacity: 0.8;
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.transaction-type {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.transaction-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.transaction-status.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.transaction-status.failed {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.transaction-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  font-size: 14px;
+}
+
+.transaction-address,
+.transaction-amount,
+.transaction-time,
+.transaction-gas,
+.transaction-hash {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.transaction-details .label {
+  color: #7f8c8d;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.transaction-details .value {
+  color: #2c3e50;
+  font-weight: 500;
+  word-break: break-all;
+  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.hash-link {
+  color: #3498db;
+  text-decoration: none;
+  font-family: monospace;
+  transition: color 0.2s;
+}
+
+.hash-link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.load-more-container {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.load-more-button {
+  padding: 12px 32px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.load-more-button:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+.load-more-button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* 暗色模式 */
+.dark-theme .transaction-history-section {
+  background: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.dark-theme .transaction-history-section h2 {
+  color: #e0e0e0;
+}
+
+.dark-theme .transaction-item {
+  background: #3a3a3a;
+  border-left-color: #5dade2;
+}
+
+.dark-theme .transaction-item.failed {
+  border-left-color: #e74c3c;
+}
+
+.dark-theme .transaction-type {
+  color: #e0e0e0;
+}
+
+.dark-theme .transaction-details .value {
+  color: #e0e0e0;
+}
+
+.dark-theme .transaction-details .label {
+  color: #999;
+}
+
+.dark-theme .search-input,
+.dark-theme .filter-select {
+  background: #3a3a3a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+.dark-theme .search-input:focus,
+.dark-theme .filter-select:focus {
+  border-color: #5dade2;
+}
+
+.dark-theme .empty-message {
+  color: #999;
+}
+
+.dark-theme .error-message {
+  background: #4a1a1a;
+  color: #ff6b6b;
+}
+
+@media (max-width: 768px) {
+  .transaction-details {
+    grid-template-columns: 1fr;
+  }
+}
+

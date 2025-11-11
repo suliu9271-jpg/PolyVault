@@ -1,0 +1,400 @@
+.defi-positions-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.defi-positions-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.defi-positions-section:hover::before {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.defi-positions-section h2 {
+  margin: 0 0 28px 0;
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.defi-positions-section h2::before {
+  content: '🏦';
+  font-size: 32px;
+  -webkit-text-fill-color: initial;
+  background: none;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.total-value-badge {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-message {
+  color: #999;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.empty-subtitle {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.error-message {
+  padding: 16px;
+  background: #fee;
+  color: #c33;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.defi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.defi-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 247, 250, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.defi-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.defi-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 16px 48px rgba(102, 126, 234, 0.25),
+    0 0 0 1px rgba(102, 126, 234, 0.2) inset;
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.defi-card:hover::after {
+  opacity: 1;
+}
+
+.defi-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.defi-logo {
+  font-size: 48px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.defi-info {
+  flex: 1;
+}
+
+.defi-name {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.defi-type {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(102, 126, 234, 0.2);
+  color: #667eea;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.defi-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.detail-value.success {
+  color: #27ae60;
+}
+
+.detail-value.danger {
+  color: #e74c3c;
+}
+
+.health-factor {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.health-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.health-bar {
+  position: relative;
+  height: 24px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.health-fill {
+  height: 100%;
+  border-radius: 12px;
+  transition: width 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.health-fill.safe {
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+}
+
+.health-fill.warning {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.health-fill.danger {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.health-value {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ltv-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.lp-positions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.lp-item {
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.lp-more {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+.defi-value {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.value-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+}
+
+.value-amount {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* 暗色模式 */
+.dark-theme .defi-positions-section {
+  background: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.dark-theme .defi-positions-section h2 {
+  color: #e0e0e0;
+}
+
+.dark-theme .defi-card {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+  border-color: #555;
+}
+
+.dark-theme .defi-logo {
+  background: #2c2c2c;
+}
+
+.dark-theme .defi-name {
+  color: #e0e0e0;
+}
+
+.dark-theme .defi-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .detail-label {
+  color: #999;
+}
+
+.dark-theme .detail-value {
+  color: #e0e0e0;
+}
+
+.dark-theme .health-bar {
+  background: #1a1a1a;
+}
+
+.dark-theme .ltv-info {
+  color: #999;
+}
+
+.dark-theme .lp-item {
+  background: rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+}
+
+.dark-theme .health-factor {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .defi-value {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .defi-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+

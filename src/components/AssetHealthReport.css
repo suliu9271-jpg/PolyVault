@@ -1,0 +1,258 @@
+.asset-health-report-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out 0.4s backwards;
+}
+
+.asset-health-report-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.asset-health-report-section:hover::before {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.asset-health-report-section h2 {
+  margin: 0 0 28px 0;
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.asset-health-report-section h2::before {
+  content: '📋';
+  font-size: 32px;
+  -webkit-text-fill-color: initial;
+  background: none;
+}
+
+.report-overview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.overall-score-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 8px;
+}
+
+.score-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 14px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.report-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.metric-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.report-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.detail-section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.detail-section h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.risk-badge.低 {
+  background: #d4edda;
+  color: #155724;
+}
+
+.risk-badge.中 {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.risk-badge.高 {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.risk-factors,
+.recommendations {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.risk-factors li,
+.recommendations li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #666;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.risk-factors li:last-child,
+.recommendations li:last-child {
+  border-bottom: none;
+}
+
+/* 暗色模式 */
+.dark-theme .asset-health-report-section {
+  background: #2c2c2c;
+  color: #e0e0e0;
+}
+
+.dark-theme .asset-health-report-section h2 {
+  color: #e0e0e0;
+}
+
+.dark-theme .score-inner {
+  background: #2c2c2c;
+}
+
+.dark-theme .score-value {
+  color: #e0e0e0;
+}
+
+.dark-theme .metric-item {
+  background: #3a3a3a;
+}
+
+.dark-theme .metric-value {
+  color: #e0e0e0;
+}
+
+.dark-theme .detail-section {
+  background: #3a3a3a;
+}
+
+.dark-theme .detail-section h3 {
+  color: #e0e0e0;
+}
+
+.dark-theme .risk-factors li,
+.dark-theme .recommendations li {
+  color: #bbb;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .report-overview {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .report-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .report-details {
+    grid-template-columns: 1fr;
+  }
+}
+
