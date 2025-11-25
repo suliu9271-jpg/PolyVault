@@ -1,3 +1,4 @@
+/* eslint-env es2020 */
 /**
  * Alchemy API Service
  */
